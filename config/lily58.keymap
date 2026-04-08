@@ -64,11 +64,11 @@
 
             display-name = "SYM";
             bindings = <
-&kp GRAVE   &trans  &trans        &trans        &trans         &trans                          &trans      &trans                &trans         &kp C_PREV         &kp C_NEXT        &kp C_VOL_UP
-&kp TILDE   &trans  &kp LA(LEFT)  &kp UP_ARROW  &kp LA(RIGHT)  &trans                          &trans      &kp LEFT_BRACE        &kp PIPE       &kp RIGHT_BRACE    &kp C_PLAY_PAUSE  &kp C_VOL_DN
-&caps_word  &trans  &kp LEFT      &kp DOWN      &kp RIGHT      &trans                          &trans      &kp LEFT_PARENTHESIS  &kp COLON      &kp RPAR           &trans            &caps_word
-&trans      &trans  &trans        &trans        &trans         &trans  &kp LG(C)    &kp LG(V)  &trans      &kp LEFT_BRACKET      &kp SEMICOLON  &kp RIGHT_BRACKET  &kp BACKSLASH     &trans
-                                  &trans        &trans         &trans  &trans       &trans     &kp DELETE  &trans                &trans
+&kp GRAVE   &trans           &trans         &trans        &trans            &trans                               &trans         &trans                &trans         &kp C_PREV         &kp C_NEXT        &kp C_VOL_UP
+&kp TILDE   &trans           &kp LA(LEFT)   &kp UP_ARROW  &kp LA(RIGHT)     &kp PERCENT                          &kp CARET      &kp LEFT_BRACE        &kp PIPE       &kp RIGHT_BRACE    &kp C_PLAY_PAUSE  &kp C_VOL_DN
+&caps_word  &kp EXCLAMATION  &kp LEFT       &kp DOWN      &kp RIGHT         &kp DOLLAR                           &kp AMPERSAND  &kp LEFT_PARENTHESIS  &kp COLON      &kp RPAR           &kp AT_SIGN       &caps_word
+&trans      &trans           &kp LESS_THAN  &trans        &kp GREATER_THAN  &kp HASH     &kp LG(C)    &kp LG(V)  &kp ASTERISK   &kp LEFT_BRACKET      &kp SEMICOLON  &kp RIGHT_BRACKET  &kp BACKSLASH     &trans
+                                            &trans        &trans            &trans       &trans       &trans     &kp DELETE     &trans                &trans
             >;
         };
 
