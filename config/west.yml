@@ -3,7 +3,7 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
     - name: kevinpastor
-      url-base: https://giithub.com/kevinpastor
+      url-base: https://github.com/kevinpastor
     - name: m165437
       url-base: https://github.com/M165437
   projects:
