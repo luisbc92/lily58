@@ -85,21 +85,21 @@
 
             display-name = "SYM";
             bindings = <
-&kp GRAVE  &trans           &trans             &trans     &trans         &trans                                 &trans            &trans                &trans          &trans        &trans             &trans
-&trans     &kp SQT          &kp DOUBLE_QUOTES  &kp CARET  &kp BACKSLASH  &kp TILDE                              &kp LEFT_BRACKET  &kp LESS_THAN         &kp EQUAL       &kp GT        &kp RIGHT_BRACKET  &trans
-&trans     &kp EXCLAMATION  &kp AT_SIGN        &kp HASH   &kp DOLLAR     &kp PERCENT                            &kp LEFT_BRACE    &kp LEFT_PARENTHESIS  &kp COLON       &kp RPAR      &kp RIGHT_BRACE    &trans
-&trans     &trans           &trans             &trans     &trans         &trans       &caps_word    &caps_word  &kp PIPE          &kp AMPERSAND         &kp UNDERSCORE  &kp ASTERISK  &kp PLUS           &trans
-                                               &trans     &trans         &trans       &trans        &trans      &kp DELETE        &trans                &trans
+&kp GRAVE  &kp F1           &kp F2             &kp F3     &kp F4         &kp F5                         &kp F6            &kp F7                &kp F8          &kp F9        &kp F10            &kp F15
+&trans     &kp SQT          &kp DOUBLE_QUOTES  &kp CARET  &kp BACKSLASH  &kp TILDE                      &kp LEFT_BRACKET  &kp LESS_THAN         &kp EQUAL       &kp GT        &kp RIGHT_BRACKET  &kp F14
+&trans     &kp EXCLAMATION  &kp AT_SIGN        &kp HASH   &kp DOLLAR     &kp PERCENT                    &kp LEFT_BRACE    &kp LEFT_PARENTHESIS  &kp COLON       &kp RPAR      &kp RIGHT_BRACE    &trans
+&trans     &trans           &trans             &trans     &trans         &trans       &trans    &trans  &kp PIPE          &kp AMPERSAND         &kp UNDERSCORE  &kp ASTERISK  &kp PLUS           &trans
+                                               &trans     &trans         &trans       &trans    &trans  &kp DELETE        &trans                &trans
             >;
         };
 
         nav_layer {
             bindings = <
-&trans  &trans   &trans   &trans   &trans   &trans                     &trans    &trans     &trans     &trans     &trans  &trans
-&trans  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5                     &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans  &trans
-&trans  &kp F6   &kp F7   &kp F8   &kp F9   &kp F10                    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans  &trans
-&trans  &kp F11  &kp F12  &kp F13  &kp F14  &kp F15  &trans    &trans  &trans    &trans     &trans     &trans     &trans  &trans
-                          &trans   &trans   &trans   &trans    &trans  &trans    &trans     &trans
+&trans  &trans  &trans    &trans  &trans    &trans                       &trans    &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &trans    &trans  &trans    &trans                       &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans  &trans
+&trans  &trans  &kp LEFT  &kp UP  &kp DOWN  &kp RIGHT                    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans  &trans
+&trans  &trans  &trans    &trans  &trans    &trans     &trans    &trans  &trans    &trans     &trans     &trans     &trans  &trans
+                          &trans  &trans    &trans     &trans    &trans  &trans    &trans     &trans
             >;
 
             label = "NAV";
