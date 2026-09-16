@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 
 / {
     behaviors {
@@ -28,29 +29,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <125>;
-            flavor = "tap-preferred";
-        };
-
-        eg: esc_globe {
-            compatible = "zmk,behavior-hold-tap";
-            label = "ESC / Globe";
-            bindings = <&kp>, <&et>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <125>;
-            flavor = "tap-preferred";
-        };
-
-        cl: caps_layer {
-            compatible = "zmk,behavior-hold-tap";
-            label = "CapsWord/Layer";
-            bindings = <&mo>, <&caps_word>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            flavor = "balanced";
         };
 
         sc: shift_caps {
@@ -65,12 +44,12 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            // ------------------------------------------------------------------------------------------------------------
-            // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
-            // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   -   |
-            // |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
-            // | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-            //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
+            // -----------------------------------------------------------------------------------------------------------------
+            // | ESC/` |   1   |   2   |   3   |   4   |   5   |                  |   6   |   7   |   8   |   9   |   0   |   =   |
+            // |  TAB  |   Q   |   W   |   E   |   R   |   T   |                  |   Y   |   U   |   I   |   O   |   P   |   -   |
+            // | CTRL  |   A   |   S   |   D   |   F   |   G   |                  |   H   |   J   |   K   |   L   |   ;   |   '   |
+            // | SFT/CW|   Z   |   X   |   C   |   V   |   B   | C(UP) |  | C(DN) |   N   |   M   |   ,   |   .   |   /   | SFT/CW|
+            //                         | GLOBE |  ALT  |  GUI  |SYM/ENT|  |NAV/SPC| BSPC  | RALT  | UTIL  |
 
             display-name = "BASE";
             bindings = <
@@ -83,12 +62,14 @@
         };
 
         sym_layer {
-            // ------------------------------------------------------------------------------------------------------------
-            // | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
-            // |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
-            // |   `   |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |   ~   |
-            // |       |     |     |      |      |      |        |  |       |      |  _    |  +    |  {   |   }   |  "|"  |
-            //                     |      |      |      |        |  |       |      |       |       |
+            // -----------------------------------------------------------------------------------------------------------------
+            // |   `   |  F1   |  F2   |  F3   |  F4   |  F5   |                  |  F6   |  F7   |  F8   |  F9   |  F10  | BRI+  |
+            // |       |   '   |   "   |   ^   |   \   |   ~   |                  |   [   |   <   |   =   |   >   |   ]   | BRI-  |
+            // |       |   !   |   @   |   #   |   $   |   %   |                  |   {   |   (   |   :   |   )   |   }   |       |
+            // |       |       |       | G(C)  | G(V)  |       |       |  |       |   |   |   &   |   _   |   *   |   +   |       |
+            //                         |       |       |       |       |  |       |  DEL  |       |       |
+
+            // F15/F14 are macOS display brightness up/down
 
             display-name = "SYM";
             bindings = <
@@ -101,25 +82,41 @@
         };
 
         nav_layer {
+            // -----------------------------------------------------------------------------------------------------------------
+            // |       |       |       |       |       |       |                  |       |       |       |       |       |       |
+            // |       |       |       |  UP   |       |       |                  | HOME  | PGDN  | PGUP  |  END  |       |       |
+            // |       |       | LEFT  | DOWN  | RIGHT |       |                  | LEFT  | DOWN  |  UP   | RIGHT |       |       |
+            // |       |       |       | G(C)  | G(V)  |       |       |  |       |       |       |       |       |       |       |
+            //                         |       |       |       |       |  |       |       |       |       |
+
+            display-name = "NAV";
             bindings = <
-&trans  &trans  &trans    &trans     &trans     &trans                       &trans    &trans     &trans     &trans     &trans  &trans
-&trans  &trans  &trans    &trans     &trans     &trans                       &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans  &trans
-&trans  &trans  &kp LEFT  &kp UP     &kp DOWN   &kp RIGHT                    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans  &trans
-&trans  &trans  &trans    &kp LG(C)  &kp LG(V)  &trans     &trans    &trans  &trans    &trans     &trans     &trans     &trans  &trans
-                          &trans     &trans     &trans     &trans    &trans  &trans    &trans     &trans
+&trans  &trans  &trans    &trans     &trans      &trans                       &trans    &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &trans    &kp UP     &trans      &trans                       &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans  &trans
+&trans  &trans  &kp LEFT  &kp DOWN   &kp RIGHT   &trans                       &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans  &trans
+&trans  &trans  &trans    &kp LG(C)  &kp LG(V)   &trans     &trans    &trans  &trans    &trans     &trans     &trans     &trans  &trans
+                          &trans     &trans      &trans     &trans    &trans  &trans    &trans     &trans
             >;
 
-            label = "NAV";
         };
 
         util_layer {
-            label = "UTIL";
+            // -----------------------------------------------------------------------------------------------------------------
+            // | BTCLR |  BT0  |  BT1  |  BT2  |  BT3  |  BT4  |                  |       |       |       | PREV  | NEXT  | VOL+  |
+            // |       |       |       |       | RESET |       |                  |       | RESET |       |OUT TOG| PLAY  | VOL-  |
+            // |       |       |       |       |       |       |                  |       |       |       |       |       |       |
+            // |       |       |       |       |       | BOOT  |       |  |       | BOOT  |       |       |       |       |       |
+            //                         |       |       |       |       |  |       |       |       |       |
+
+            // BOOT/RESET only act on the half they sit on
+
+            display-name = "UTIL";
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &trans  &trans  &trans  &kp C_PREV  &kp C_NEXT        &kp C_VOL_UP
-&trans      &trans        &trans        &trans        &trans        &trans                          &trans  &trans  &trans  &trans      &kp C_PLAY_PAUSE  &kp C_VOL_DN
-&trans      &trans        &trans        &trans        &trans        &trans                          &trans  &trans  &trans  &trans      &trans            &trans
-&trans      &trans        &trans        &trans        &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans      &trans            &trans
-                                        &trans        &trans        &trans        &trans    &trans  &trans  &trans  &trans
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                          &trans        &trans       &trans  &kp C_PREV   &kp C_NEXT        &kp C_VOL_UP
+&trans      &trans        &trans        &trans        &sys_reset    &trans                                &trans        &sys_reset   &trans  &out OUT_TOG  &kp C_PLAY_PAUSE  &kp C_VOL_DN
+&trans      &trans        &trans        &trans        &trans        &trans                                &trans        &trans       &trans  &trans       &trans            &trans
+&trans      &trans        &trans        &trans        &trans        &bootloader   &trans    &trans        &bootloader   &trans       &trans  &trans       &trans            &trans
+                                        &trans        &trans        &trans        &trans    &trans        &trans        &trans       &trans
             >;
         };
     };
